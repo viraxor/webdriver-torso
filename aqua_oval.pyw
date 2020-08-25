@@ -1,5 +1,4 @@
 from tkinter import *
-from winsound import Beep as beep
 from random import randint as rnd
 from PIL import ImageGrab
 
