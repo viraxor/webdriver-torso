@@ -8,7 +8,7 @@ figure = 0
 
 root.title('Webdriver Torso')
 
-canvas = tk.Canvas(root, width=820, height=550, bg="white")
+canvas = tk.Canvas(root, width=820, height=550, bg="#ffffff")
 
 color1 = "#ff0000"
 color2 = "#0000ff"
@@ -59,7 +59,7 @@ file_menu.add_command(label="Save As...", command=saveaswebdrivertorso)
 
 menubar.add_cascade(label="File", menu=file_menu)
 
-def choosecolor(e=None):
+def rectcolors():
     global color1, color2
     colordialog1 = colorchooser.askcolor()
     colordialog2 = colorchooser.askcolor()
@@ -71,9 +71,18 @@ def choosecolor(e=None):
 
     messagebox.showinfo(title="Colors changed", message="The rectangle colors are successfully changed.")
 
+def canvascolor():
+    colordialog = colorchooser.askcolor()
+
+    if colordialog:
+        canvas.configure(bg=colordialog[1])
+
+    messagebox.showinfo(title="Background color changed", message="The background color is successfuly changed.")
+
 view_menu = tk.Menu(menubar)
 
-view_menu.add_command(label="Change color...", command=choosecolor)
+view_menu.add_command(label="Change rectangle colors...", command=rectcolors)
+view_menu.add_command(label="Change background color...", command=canvascolor)
 
 menubar.add_cascade(label="View", menu=view_menu)
 
@@ -87,3 +96,5 @@ root.bind("<Control-S>", saveaswebdrivertorso)
 webdrivertorso()
 
 root.mainloop()
+
+
